@@ -1,6 +1,7 @@
 let selectedDate = "";
 let selectedTime = "";
 let selectedFood = "";
+let selectedEmail = "";
 
 
 // ==============================
@@ -48,15 +49,11 @@ function showQuestion() {
     const noButton =
         document.getElementById("noButton");
 
-
-    // Mouse
     noButton.addEventListener(
         "mouseenter",
         moveNoButton
     );
 
-
-    // Phone
     noButton.addEventListener(
         "touchstart",
         function(event) {
@@ -83,13 +80,11 @@ function moveNoButton() {
         return;
     }
 
-
     const buttonWidth =
         noButton.offsetWidth;
 
     const buttonHeight =
         noButton.offsetHeight;
-
 
     const maxX =
         window.innerWidth -
@@ -101,20 +96,17 @@ function moveNoButton() {
         buttonHeight -
         20;
 
-
     const x =
         Math.max(
             10,
             Math.random() * maxX
         );
 
-
     const y =
         Math.max(
             10,
             Math.random() * maxY
         );
-
 
     noButton.style.position =
         "fixed";
@@ -236,7 +228,6 @@ function foodPage() {
     selectedTime =
         document.getElementById("time").value;
 
-
     if (
         selectedDate === "" ||
         selectedTime === ""
@@ -248,7 +239,6 @@ function foodPage() {
 
         return;
     }
-
 
     document.querySelector(".container").innerHTML = `
 
@@ -323,7 +313,6 @@ function finish() {
     selectedFood =
         document.getElementById("food").value;
 
-
     if (selectedFood === "") {
 
         alert(
@@ -332,7 +321,6 @@ function finish() {
 
         return;
     }
-
 
     document.querySelector(".container").innerHTML = `
 
@@ -378,6 +366,28 @@ function finish() {
                 action="https://formspree.io/f/xeaokyla"
                 method="POST"
             >
+
+                <label
+                    for="email"
+                    style="
+                        display:block;
+                        color:#ff4f70;
+                        font-weight:bold;
+                        margin-bottom:8px;
+                    "
+                >
+                    Your email 💌
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <br><br>
 
                 <input
                     type="hidden"
@@ -447,13 +457,10 @@ function createHeart() {
     heart.style.zIndex =
         "1";
 
-
     document.body.appendChild(heart);
-
 
     const duration =
         Math.random() * 4000 + 4000;
-
 
     heart.animate(
         [
@@ -477,7 +484,6 @@ function createHeart() {
         }
     );
 
-
     setTimeout(
         function() {
 
@@ -493,15 +499,19 @@ setInterval(
     createHeart,
     700
 );
+
+
 // ==============================
 // ROMANTIC SPARKLES
 // ==============================
 
 function createSparkle() {
 
-    const sparkle = document.createElement("div");
+    const sparkle =
+        document.createElement("div");
 
-    sparkle.className = "sparkle";
+    sparkle.className =
+        "sparkle";
 
     sparkle.style.left =
         Math.random() * 100 + "vw";
@@ -517,13 +527,21 @@ function createSparkle() {
 
     document.body.appendChild(sparkle);
 
-    setTimeout(function() {
-        sparkle.remove();
-    }, duration);
+    setTimeout(
+        function() {
+
+            sparkle.remove();
+
+        },
+        duration
+    );
 }
 
 
-setInterval(createSparkle, 500);
+setInterval(
+    createSparkle,
+    500
+);
 
 
 // ==============================
@@ -539,7 +557,9 @@ function createFloatingHeart() {
         "floating-heart";
 
     heart.innerHTML =
-        Math.random() > 0.5 ? "❤️" : "💕";
+        Math.random() > 0.5
+            ? "❤️"
+            : "💕";
 
     heart.style.left =
         Math.random() * 100 + "vw";
@@ -555,9 +575,14 @@ function createFloatingHeart() {
 
     document.body.appendChild(heart);
 
-    setTimeout(function() {
-        heart.remove();
-    }, duration);
+    setTimeout(
+        function() {
+
+            heart.remove();
+
+        },
+        duration
+    );
 }
 
 
